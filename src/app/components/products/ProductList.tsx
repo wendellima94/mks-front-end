@@ -1,6 +1,7 @@
 import React from "react";
 import { ProductItemProps } from "./interfaces/IProduct";
 import {
+  ButtomText,
   ProductButton,
   ProductCard,
   ProductDescription,
@@ -8,7 +9,9 @@ import {
   ProductInfo,
   ProductName,
   ProductPrice,
-} from "../styles/ProductStyle";
+} from "./styles/ProductStyle";
+import Image from "next/image";
+import SaleIcon from "@/../public/cart.svg";
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   const price = Number(product.price);
@@ -33,7 +36,10 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
         <ProductDescription>
           <p>{product.description}</p>
         </ProductDescription>
-        <ProductButton>Adicionar ao carrinho</ProductButton>
+        <ProductButton>
+          <Image src={SaleIcon} alt="Icone carrinho compras" width={18} height={18} />
+          <ButtomText>COMPRAR</ButtomText>
+        </ProductButton>
       </ProductCard>
     </>
   );

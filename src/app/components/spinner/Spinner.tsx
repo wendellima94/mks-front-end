@@ -9,7 +9,7 @@ const Spinner: React.FC = () => {
         height: "50px",
         borderRadius: "50%",
         border: "5px solid #ccc",
-        borderTopColor: "#0f52ba",
+        borderTopColor: "#0f51b9",
         position: "relative",
         top: "50%",
         left: "50%",

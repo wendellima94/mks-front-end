@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ProductItem from "./ProductList";
 import { useProductsQuery } from "../../utils/api";
 import { Spinner } from "../spinner";
+import SkeletonProductItem from "../skeleton-frame/Skeleton";
 
 const ProductListContainerWrapper = styled.div`
   display: grid;
@@ -24,9 +25,18 @@ const ProductListContainerWrapper = styled.div`
 `;
 
 const ProductListContainer: React.FC = () => {
-  const { data, isLoading, isError } = useProductsQuery(1, 8);
+  const { data, isLoading, isError } = useProductsQuery(1, 8, "id", "DESC");
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) {
+    return (
+      <ProductListContainerWrapper>
+        {[...Array(8)].map((_, index) => (
+          <SkeletonProductItem key={index} />
+        ))}
+      </ProductListContainerWrapper>
+    );
+  }
+
   if (isError) return <p>Ocorreu um erro ao carregar os produtos.</p>;
 
   return (

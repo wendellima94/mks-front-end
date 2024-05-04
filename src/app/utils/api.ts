@@ -1,7 +1,7 @@
- 
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
 
-const API_URL = 'https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1';
+const API_URL =
+  "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1";
 
 interface Product {
   id: number;
@@ -19,25 +19,45 @@ interface ApiResponse {
   count: number;
 }
 
-export const fetchProducts = async (page: number, rows: number): Promise<ApiResponse> => {
-  const queryParams = new URLSearchParams({
-    page: page.toString(),
-    rows: rows.toString(),
-    sortBy: 'id',
-    orderBy: 'DESC',
+export const fetchProducts = async (
+  page: number,
+  rows: number,
+  sortBy: string,
+  orderBy: string
+): Promise<ApiResponse> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(async () => {
+      try {
+        const queryParams = new URLSearchParams({
+          page: page.toString(),
+          rows: rows.toString(),
+          sortBy: sortBy.toString(),
+          orderBy: orderBy,
+        });
+
+        const url = `${API_URL}/products?${queryParams}`;
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+          throw new Error("Erro ao obter os produtos.");
+        }
+        const data: ApiResponse = await response.json();
+        resolve(data);
+      } catch (error) {
+        reject(error);
+      }
+    }, 2000);
   });
-
-  const url = `${API_URL}/products?${queryParams}`;
-
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error('Erro ao obter os produtos.');
-  }
-  const data: ApiResponse = await response.json();
-  return data;
 };
 
-export const useProductsQuery = (page: number, rows: number) => {
-  return useQuery(['products', page, rows], () => fetchProducts(page, rows));
+export const useProductsQuery = (
+  page: number,
+  rows: number,
+  sortBy: string,
+  orderBy: string
+) => {
+  return useQuery(["products", page, rows, sortBy, orderBy], () =>
+    fetchProducts(page, rows, sortBy, orderBy)
+  );
 };

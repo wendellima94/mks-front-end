@@ -61,14 +61,18 @@ export const ProductPrice = styled.div`
 `;
 
 export const ProductButton = styled.button`
+  width: 218px;
+  height: 31.91px;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  justify-content: space-evenly;
   font-size: 14px;
   background-color: #0f52ba;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 218px;
-  height: 31.91px;
   gap: 0px;
   border-radius: 0px 0px 8px 8px;
   opacity: 0px;
@@ -82,6 +86,14 @@ export const ProductButton = styled.button`
     background-color: #0f51b9;
   }
   transition: transform 0.2s ease;
+`;
+
+export const ButtomText = styled.span`
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: left;
 `;
 
 export const ProductDescription = styled.div`
