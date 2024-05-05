@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import ProductItem from "./ProductList";
 import { useProductsQuery } from "../../utils/api";
-import { Spinner } from "../spinner";
 import SkeletonProductItem from "../skeleton-frame/Skeleton";
 
 const ProductListContainerWrapper = styled.div`
@@ -25,7 +24,7 @@ const ProductListContainerWrapper = styled.div`
 `;
 
 const ProductListContainer: React.FC = () => {
-  const { data, isLoading, isError } = useProductsQuery(1, 8, "id", "DESC");
+  const { data, isLoading } = useProductsQuery(1, 8, "id", "DESC");
 
   if (isLoading) {
     return (
@@ -36,8 +35,6 @@ const ProductListContainer: React.FC = () => {
       </ProductListContainerWrapper>
     );
   }
-
-  if (isError) return <p>Ocorreu um erro ao carregar os produtos.</p>;
 
   return (
     <ProductListContainerWrapper>

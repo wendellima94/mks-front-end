@@ -1,24 +1,13 @@
 import { useQuery } from "react-query";
+import { Product } from "../components/products/interfaces/IProduct";
 
 const API_URL =
   "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1";
-
-interface Product {
-  id: number;
-  name: string;
-  brand: string;
-  description: string;
-  photo: string;
-  price: string;
-  createdAt: string;
-  updatedAt: string;
-}
 
 interface ApiResponse {
   products: Product[];
   count: number;
 }
-
 export const fetchProducts = async (
   page: number,
   rows: number,
@@ -31,7 +20,7 @@ export const fetchProducts = async (
         const queryParams = new URLSearchParams({
           page: page.toString(),
           rows: rows.toString(),
-          sortBy: sortBy.toString(),
+          sortBy: sortBy,
           orderBy: orderBy,
         });
 
@@ -47,7 +36,7 @@ export const fetchProducts = async (
       } catch (error) {
         reject(error);
       }
-    }, 2000);
+    }, 100);
   });
 };
 

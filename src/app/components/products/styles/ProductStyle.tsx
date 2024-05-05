@@ -80,12 +80,6 @@ export const ProductButton = styled.button`
   bottom: 0;
   left: 0;
   width: 100%;
-
-  &:hover {
-    transform: scale(1.01);
-    background-color: #0f51b9;
-  }
-  transition: transform 0.2s ease;
 `;
 
 export const ButtomText = styled.span`
