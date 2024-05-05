@@ -43,7 +43,7 @@ export const Footer = styled.footer`
   width: 100%;
   max-width: 470px;
   height: auto;
-  
+
   bottom: 0;
   z-index: 1000;
   background: #0f52ba;
@@ -61,12 +61,11 @@ export const TotalPrice = styled.div`
   padding: 0 50px;
   font-size: 28px;
   font-weight: 700;
-
+=
 `;
 
 export const FinishSale = styled.div`
-
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -86,6 +85,8 @@ export const CartTitle = styled.h2`
   font-weight: 700;
   line-height: 32.91px;
   white-space: pre-line;
+  @media (max-width: 768px) {
+  }
 `;
 
 export const CartItem = styled.div`
@@ -105,7 +106,7 @@ export const CartItem = styled.div`
   position: relative;
   @media (max-width: 768px) {
     width: 250px;
-    height: 250px;
+    height: 260px;
     display: flex;
     flex-direction: column;
     padding-bottom: 50px;
@@ -149,7 +150,7 @@ export const CartPriceAndControls = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    margin-top: 10px;
+    margin-top: 16px;
   }
 `;
 
@@ -177,7 +178,7 @@ export const CartItemName = styled.p`
   margin-right: 10px;
 
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
   }
 `;
