@@ -8,6 +8,13 @@ export const NavBarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+  }
 `;
 
 export const LogoImage = styled.div`
@@ -16,7 +23,6 @@ export const LogoImage = styled.div`
 `;
 
 export const Logo = styled.p`
-  font-family: Montserrat;
   font-size: 40px;
   font-weight: 600;
   line-height: 19px;
@@ -24,7 +30,6 @@ export const Logo = styled.p`
 `;
 
 export const LogoItem = styled.p`
-  font-family: Montserrat;
   font-size: 20px;
   font-weight: 300;
   margin: 0 4px;
@@ -43,7 +48,6 @@ export const NavBarItens = styled.div`
 `;
 
 export const CartItem = styled.span`
-  font-family: Montserrat;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.94px;

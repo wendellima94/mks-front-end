@@ -59,7 +59,6 @@ export const TotalPrice = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 50px;
-  font-family: Montserrat;
   font-size: 28px;
   font-weight: 700;
 
@@ -72,7 +71,6 @@ display: flex;
   justify-content: center;
   width: 100%;
   height: 81px;
-  font-family: Montserrat;
   font-size: 28px;
   font-weight: 700;
   background: #000;
@@ -84,7 +82,6 @@ display: flex;
 
 export const CartTitle = styled.h2`
   color: #ffffff;
-  font-family: Montserrat;
   font-size: 27px;
   font-weight: 700;
   line-height: 32.91px;
@@ -180,8 +177,7 @@ export const CartItemName = styled.p`
   margin-right: 10px;
 
   @media (max-width: 768px) {
-    font-family: Montserrat;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
   }
 `;
@@ -210,8 +206,7 @@ export const QuantityInput = styled.input`
   border-bottom: none;
 
   @media (max-width: 768px) {
-    font-family: Montserrat;
-    font-size: 20px;
+      font-size: 20px;
     font-weight: 400;
     text-align: center;
     
@@ -230,13 +225,11 @@ export const QuantityButton = styled.button`
 export const CartItemPrice = styled.p`
   width: 62px;
   height: 17px;
-  font-family: Montserrat;
   font-size: 16px;
   font-weight: 700;
 
   @media (max-width: 768px) {
-    font-family: Montserrat;
-    font-size: 16px;
+      font-size: 16px;
     font-weight: 400;
     color: #ffffff;
     width: 84px;
