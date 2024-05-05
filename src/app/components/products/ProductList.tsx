@@ -16,7 +16,7 @@ import Image from "next/image";
 import SaleIcon from "@/../public/cart.svg";
 
 const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
-  const { addToCart } = useShoppingCart();
+  const { addToCart } = useShoppingCart(); 
   const [notificationVisible, setNotificationVisible] = useState(false);
 
   const price = Number(product.price);
@@ -26,6 +26,16 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   const handleAddToCart = () => {
     addToCart(product);
     setNotificationVisible(true);
+
+    const savedCartItems = localStorage.getItem("cartItems");
+    const updatedCartItems = savedCartItems
+      ? JSON.parse(savedCartItems)
+      : [];
+    const updatedCartItem = {
+      ...product,
+      quantity: 1
+    };
+    localStorage.setItem("cartItems", JSON.stringify([...updatedCartItems, updatedCartItem]));
   };
 
   return (

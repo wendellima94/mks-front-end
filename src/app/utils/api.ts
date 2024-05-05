@@ -36,7 +36,7 @@ export const fetchProducts = async (
       } catch (error) {
         reject(error);
       }
-    }, 100);
+    }, 0);
   });
 };
 

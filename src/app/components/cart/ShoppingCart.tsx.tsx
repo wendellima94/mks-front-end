@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useShoppingCart } from "@/app/contexts/ShoppingCartContext.tsx";
+import React, { useState, useEffect } from "react";
 import {
   CartContainer,
   CartItem,
@@ -19,14 +18,33 @@ import {
   QuantityInput,
   TotalPrice,
 } from "./styles/ShoppingCart.tsxStyle";
+import { useShoppingCart } from "@/app/contexts/ShoppingCartContext.tsx";
 
 const ShoppingCart: React.FC = () => {
-  const { cartItems, cartTotal, removeFromCart, setCartItems } =
-    useShoppingCart();
+  const { cartItems, cartTotal, removeFromCart, setCartItems } = useShoppingCart();
   const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    const loadCartItemsFromLocalStorage = () => {
+      const savedCartItems = localStorage.getItem("cartItems");
+      if (savedCartItems) {
+        const parsedCartItems = JSON.parse(savedCartItems);
+        setCartItems(parsedCartItems);
+      }
+    };
+
+    loadCartItemsFromLocalStorage();
+  }, [setCartItems]);
 
   const handleCloseCart = () => {
     setIsOpen(false);
+  };
+
+  const handleRemoveFromCart = (itemId: number) => {
+    removeFromCart(itemId);
+
+    const updatedCartItems = cartItems.filter((item) => item.id !== itemId);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
   };
 
   const handleDecreaseQuantity = (itemId: number) => {
@@ -39,8 +57,8 @@ const ShoppingCart: React.FC = () => {
     );
 
     const item = cartItems.find((item) => item.id === itemId);
-    if (item && item.quantity === 0) {
-      removeFromCart(itemId);
+    if (item && item.quantity === 1) {
+      handleRemoveFromCart(itemId);
     }
   };
 
@@ -73,7 +91,7 @@ const ShoppingCart: React.FC = () => {
           </Header>
           {cartItems.map((item) => (
             <CartItem key={item.id}>
-              <CloseItemButton onClick={() => removeFromCart(item.id)}>
+              <CloseItemButton onClick={() => handleRemoveFromCart(item.id)}>
                 X
               </CloseItemButton>
               <CartItemInfo>
@@ -82,21 +100,15 @@ const ShoppingCart: React.FC = () => {
               <CartItemName>{item.name}</CartItemName>
               <CartPriceAndControls>
                 <QuantityControl>
-                  <QuantityButton
-                    onClick={() => handleDecreaseQuantity(item.id)}
-                  >
+                  <QuantityButton onClick={() => handleDecreaseQuantity(item.id)}>
                     -
                   </QuantityButton>
                   <QuantityInput
                     type="string"
                     value={item.quantity}
-                    onChange={(e) =>
-                      handleQuantityChange(item.id, e.target.value)
-                    }
+                    onChange={(e) => handleQuantityChange(item.id, e.target.value)}
                   />
-                  <QuantityButton
-                    onClick={() => handleIncreaseQuantity(item.id)}
-                  >
+                  <QuantityButton onClick={() => handleIncreaseQuantity(item.id)}>
                     +
                   </QuantityButton>
                 </QuantityControl>
