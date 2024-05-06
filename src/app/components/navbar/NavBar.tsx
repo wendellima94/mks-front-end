@@ -11,7 +11,7 @@ import {
   NavBarItens,
 } from "./styles/NavBarStyle";
 import { useShoppingCart } from "@/app/contexts/ShoppingCartContext.tsx";
-import ShoppingCart from "../cart/ShoppingCart.tsx";
+import ShoppingCart from "../cart/ShoppingCart";
 
 const NavBar: React.FC = () => {
   const { cartItems } = useShoppingCart();

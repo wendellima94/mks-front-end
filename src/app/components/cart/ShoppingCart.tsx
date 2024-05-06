@@ -1,3 +1,4 @@
+"use cient"
 import React, { useState, useEffect } from "react";
 import {
   CartContainer,

@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Uma observação...
 
-## Getting Started
+Link do repositório do desafio back-end,  https://github.com/wendellima94/mks-movie-api.
+ 
+## Introdução
 
-First, run the development server:
+Este documento fornece uma visão geral da aplicação de e-commerce desenvolvida como parte de um desafio técnico. A aplicação tem como objetivo principal exibir uma lista de produtos da loja e permitir aos usuários adicioná-los ao carrinho de compras.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Descrição do Projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto consiste em uma aplicação web de e-commerce desenvolvida utilizando tecnologias como **TypeScript**, **React**, **Next.js**, **React-query**, **Styled-components**, e **Framer-motion**. A aplicação consome uma API REST de produtos para exibir a lista de produtos disponíveis na loja.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades Principais
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 1. Lista de Produtos
+- A lista de produtos é buscada de uma API REST e exibida na página inicial da loja.
+- Utiliza um shimmer/skeleton enquanto os produtos estão sendo carregados para melhorar a experiência do usuário.
 
-## Learn More
+### 2. Carrinho de Compras
+- O carrinho de compras permite aos usuários visualizar todos os produtos selecionados.
+- Cada item no carrinho exibe detalhes como nome, preço e quantidade.
+- Os usuários podem aumentar ou diminuir a quantidade de cada produto no carrinho.
+- Os itens selecionados são armazenados localmente utilizando o **Local Storage** para persistência de dados.
 
-To learn more about Next.js, take a look at the following resources:
+## Testes Unitários
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Não consegui completar a tempo essa funcionalidade dos testes, mas com mais tempo com certeza seria uma feature adicionada.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## UI/UX Design
 
-## Deploy on Vercel
+- O design da aplicação foi desenvolvido com base no design fornecido no **Figma**, que inclui o design system e a fonte utilizada na interface.
+- A aplicação foi construída visando uma experiência do usuário intuitiva e agradável.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Após o desenvolvimento, a aplicação foi implantada em um ambiente de hospedagem para garantir sua acessibilidade e estabilidade.
+- O deployment foi realizado utilizando a plataforma **Vercel**.
+
+## Arquitetura
+
+- A aplicação segue uma arquitetura modular, dividida em componentes reutilizáveis e bem definidos.
+- Utilizou-se **TypeScript** para garantir a tipagem estática e evitar erros comuns durante o desenvolvimento.
+
+
+
+## Conclusão
+
+A aplicação de e-commerce desenvolvida atende aos requisitos do desafio, proporcionando uma experiência de compra eficiente e intuitiva para os usuários. Este projeto demonstra um pouco das minhas habilidades em desenvolvimento web. 
+
+
